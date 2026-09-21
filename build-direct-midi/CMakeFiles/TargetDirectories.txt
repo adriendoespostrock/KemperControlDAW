@@ -1,0 +1,17 @@
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/KemperControl.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/KemperControl_All.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/KemperControl_Standalone.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/KemperControl_VST3.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/KemperControl_vst3_helper.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/KemperControlLogic.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/KemperControlLogic_All.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/KemperControlLogic_AU.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/install.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/ALL_BUILD.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/CMakeFiles/ZERO_CHECK.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/CMakeFiles/install.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/CMakeFiles/ALL_BUILD.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/CMakeFiles/ZERO_CHECK.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/modules/CMakeFiles/install.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/extras/Build/CMakeFiles/install.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/extras/Build/juceaide/CMakeFiles/install.dir

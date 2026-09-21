@@ -1,0 +1,3 @@
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeFiles/vst3_helper.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeFiles/ALL_BUILD.dir
+/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeFiles/ZERO_CHECK.dir

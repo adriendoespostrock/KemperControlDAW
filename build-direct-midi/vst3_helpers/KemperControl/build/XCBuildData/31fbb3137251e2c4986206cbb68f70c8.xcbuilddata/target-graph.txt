@@ -1,0 +1,7 @@
+Target dependency graph (3 targets)
+Target 'ALL_BUILD' in project 'juce_vst3_manifest_helper'
+➜ Explicit dependency on target 'vst3_helper' in project 'juce_vst3_manifest_helper'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'juce_vst3_manifest_helper'
+Target 'vst3_helper' in project 'juce_vst3_manifest_helper'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'juce_vst3_manifest_helper'
+Target 'ZERO_CHECK' in project 'juce_vst3_manifest_helper' (no dependencies)

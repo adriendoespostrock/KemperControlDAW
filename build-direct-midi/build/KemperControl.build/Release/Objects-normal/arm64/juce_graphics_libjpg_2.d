@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_2.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/system/juce_CompilerWarnings.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/system/juce_TargetPlatform.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdapimin.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jinclude.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jconfig.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jpeglib.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jmorecfg.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jpegint.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jerror.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdapistd.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdarith.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdcoefct.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdcolor.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdmainct.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdmarker.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdmaster.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdpostct.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jquant1.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/image_formats/jpglib/jdsample.c

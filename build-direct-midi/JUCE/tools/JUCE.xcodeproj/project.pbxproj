@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		302B8F9593CD9E47ADDDE1FE /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 926E61F7B07F4BC388A27FA5 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				76A3F17D0786E0276576E8FF /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				9FD9D8F6D4974442BE0A2038 /* PBXTargetDependency */,
+				02091CBEFEA84780A66231D8 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		8AA990460A3E3EB0BEF54C90 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 60AB4496155E4B1EB5BD0712 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				815E0AD9316F8F4941E69498 /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		96AB2B67C4C92B5D8722F76A /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F5BCDA200A9249BCAC96B52D /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				C5A0C6193CB84D119C2FE963 /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0D986AB9A79F43C98AE52E6A /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/Main.cpp */ = {isa = PBXBuildFile; fileRef = 76CCF75772C544EE855A5072 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/Main.cpp */; };
+		3ACF496B1E064AD288C48F2C /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = B845EA9ADB0244DEB59AA31A /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics.mm */; };
+		43639703DF9745CF90DF0ABB /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_2.c */ = {isa = PBXBuildFile; fileRef = E919DF3BB6B843CBBE6F60B0 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_2.c */; };
+		497C03D287994843AF42185F /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp */ = {isa = PBXBuildFile; fileRef = E27178CFDD2043B989405A94 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp */; };
+		65049E30BD314050B2E62B20 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core.mm */ = {isa = PBXBuildFile; fileRef = 1F9D55D1A2A842BE8877D065 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core.mm */; };
+		6B73C215CC6F4C0C9AB1E3FD /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libpng.c */ = {isa = PBXBuildFile; fileRef = 43965AAEF9FA4E2E95553828 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libpng.c */; };
+		7B99E76202754D9DA789BAAD /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */ = {isa = PBXBuildFile; fileRef = F2DBD3F7550F482982EE6E51 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */; };
+		A07B1988648B4432A5629C08 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c */ = {isa = PBXBuildFile; fileRef = 0BBEDD7E13A246B89382C9DB /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c */; };
+		A10E0D720A1E43E8934A2395 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_3.c */ = {isa = PBXBuildFile; fileRef = 97D436249EBF48018EE4E542 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_3.c */; };
+		AEB6EF0C4A664671A852EEB4 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_events/juce_events.mm */ = {isa = PBXBuildFile; fileRef = F745FD49089C43BCAC785C54 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_events/juce_events.mm */; };
+		B37071AD30674CEF8E2419DA /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 0ECDDFF488F0486EBD8BB964 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/CMakeLists.txt */; };
+		B7D7BF107B6F471E8335E98F /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_zlib.c */ = {isa = PBXBuildFile; fileRef = 56CD359C0E1B4783ABC9E252 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_zlib.c */; };
+		D21B1BECF97F4021A4935D64 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_1.c */ = {isa = PBXBuildFile; fileRef = F578C3739EF142D096B130E5 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_1.c */; };
+		D7832F75ED344DA084F35B0B /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_lunasvg.c */ = {isa = PBXBuildFile; fileRef = DD3D7EDED21644A787AC58B0 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_lunasvg.c */; };
+		ED2FF2BE2A234BE8AB7BA790 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_CompilationTime.cpp */ = {isa = PBXBuildFile; fileRef = 7D25D73F72474E3F80DCC85E /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_CompilationTime.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		660B890A64E549F6A66E9655 /* Custom */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Custom;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		1340CA60FF9541D08956FC00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA9C8D22D07141CC975A041C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AA990460A3E3EB0BEF54C90;
+			remoteInfo = ZERO_CHECK;
+		};
+		27E2EE7887BD432D8CB9CF58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA9C8D22D07141CC975A041C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AA990460A3E3EB0BEF54C90;
+			remoteInfo = ZERO_CHECK;
+		};
+		37BE23FFE2BC41DE9E480C58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA9C8D22D07141CC975A041C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEE75BB69C85C9BCBA6ECC35;
+			remoteInfo = juceaide;
+		};
+		DC08748408984C7A8C628DA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA9C8D22D07141CC975A041C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 302B8F9593CD9E47ADDDE1FE;
+			remoteInfo = ALL_BUILD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0BBEDD7E13A246B89382C9DB /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = juce_graphics_Sheenbidi.c; path = modules/juce_graphics/juce_graphics_Sheenbidi.c; sourceTree = SOURCE_ROOT; };
+		0ECDDFF488F0486EBD8BB964 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = extras/Build/juceaide/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1F9D55D1A2A842BE8877D065 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = juce_core.mm; path = modules/juce_core/juce_core.mm; sourceTree = SOURCE_ROOT; };
+		43965AAEF9FA4E2E95553828 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libpng.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = juce_graphics_libpng.c; path = modules/juce_graphics/juce_graphics_libpng.c; sourceTree = SOURCE_ROOT; };
+		56CD359C0E1B4783ABC9E252 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_zlib.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = juce_core_zlib.c; path = modules/juce_core/juce_core_zlib.c; sourceTree = SOURCE_ROOT; };
+		76CCF75772C544EE855A5072 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/Main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Main.cpp; path = extras/Build/juceaide/Main.cpp; sourceTree = SOURCE_ROOT; };
+		7A2965CABB484D67A9D716A5 /* /Users/adriendeurveilher/Desktop/JUCE/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		7D25D73F72474E3F80DCC85E /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_CompilationTime.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = juce_core_CompilationTime.cpp; path = modules/juce_core/juce_core_CompilationTime.cpp; sourceTree = SOURCE_ROOT; };
+		972F7A7E7AFC49BC97C98E4E /* juceaide */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = juceaide; sourceTree = BUILT_PRODUCTS_DIR; };
+		97D436249EBF48018EE4E542 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_3.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = juce_graphics_libjpg_3.c; path = modules/juce_graphics/juce_graphics_libjpg_3.c; sourceTree = SOURCE_ROOT; };
+		B845EA9ADB0244DEB59AA31A /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = juce_graphics.mm; path = modules/juce_graphics/juce_graphics.mm; sourceTree = SOURCE_ROOT; };
+		DD3D7EDED21644A787AC58B0 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_lunasvg.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = juce_graphics_lunasvg.c; path = modules/juce_graphics/juce_graphics_lunasvg.c; sourceTree = SOURCE_ROOT; };
+		E27178CFDD2043B989405A94 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = juce_graphics_Harfbuzz.cpp; path = modules/juce_graphics/juce_graphics_Harfbuzz.cpp; sourceTree = SOURCE_ROOT; };
+		E919DF3BB6B843CBBE6F60B0 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_2.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = juce_graphics_libjpg_2.c; path = modules/juce_graphics/juce_graphics_libjpg_2.c; sourceTree = SOURCE_ROOT; };
+		F2DBD3F7550F482982EE6E51 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = juce_build_tools.cpp; path = extras/Build/juce_build_tools/juce_build_tools.cpp; sourceTree = SOURCE_ROOT; };
+		F578C3739EF142D096B130E5 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_1.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = juce_graphics_libjpg_1.c; path = modules/juce_graphics/juce_graphics_libjpg_1.c; sourceTree = SOURCE_ROOT; };
+		F745FD49089C43BCAC785C54 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_events/juce_events.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = juce_events.mm; path = modules/juce_events/juce_events.mm; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F889413763DE4D168874FB31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15EA315B99FA4241989FFAD2 = {
+			isa = PBXGroup;
+			children = (
+				7E55CF5E21B446E1998853A8 /* ALL_BUILD */,
+				28E1DBDC6CBF44B9BB7F1E48 /* juceaide */,
+				2FB7D8DCDF4F46EE8D50652B /* Products */,
+				D9E5919FB76E4C379DB521D7 /* Frameworks */,
+				BD8F175DB666433598EA9DF1 /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+		28E1DBDC6CBF44B9BB7F1E48 /* juceaide */ = {
+			isa = PBXGroup;
+			children = (
+				A9AF379DE32B4162975343F7 /* Source Files */,
+				0ECDDFF488F0486EBD8BB964 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/CMakeLists.txt */,
+			);
+			name = juceaide;
+			sourceTree = "<group>";
+		};
+		2FB7D8DCDF4F46EE8D50652B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				972F7A7E7AFC49BC97C98E4E /* juceaide */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E55CF5E21B446E1998853A8 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				DB78899FD37F4B6D8FD16CFB /* CMake Rules */,
+				7A2965CABB484D67A9D716A5 /* /Users/adriendeurveilher/Desktop/JUCE/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		A9AF379DE32B4162975343F7 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2DBD3F7550F482982EE6E51 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */,
+				76CCF75772C544EE855A5072 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/Main.cpp */,
+				1F9D55D1A2A842BE8877D065 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core.mm */,
+				7D25D73F72474E3F80DCC85E /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_CompilationTime.cpp */,
+				56CD359C0E1B4783ABC9E252 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_zlib.c */,
+				F745FD49089C43BCAC785C54 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_events/juce_events.mm */,
+				B845EA9ADB0244DEB59AA31A /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics.mm */,
+				E27178CFDD2043B989405A94 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp */,
+				0BBEDD7E13A246B89382C9DB /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c */,
+				F578C3739EF142D096B130E5 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_1.c */,
+				E919DF3BB6B843CBBE6F60B0 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_2.c */,
+				97D436249EBF48018EE4E542 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_3.c */,
+				43965AAEF9FA4E2E95553828 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libpng.c */,
+				DD3D7EDED21644A787AC58B0 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_lunasvg.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		BD8F175DB666433598EA9DF1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D9E5919FB76E4C379DB521D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB78899FD37F4B6D8FD16CFB /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEE75BB69C85C9BCBA6ECC35 /* juceaide */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5631293395164A8E88254DED /* Build configuration list for PBXNativeTarget "juceaide" */;
+			buildPhases = (
+				AAC9D3AF041A4180B2B7A594 /* Sources */,
+				F889413763DE4D168874FB31 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4CC529F14594456BC47160D /* PBXTargetDependency */,
+			);
+			name = juceaide;
+			productName = juceaide;
+			productReference = 972F7A7E7AFC49BC97C98E4E /* juceaide */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA9C8D22D07141CC975A041C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2660;
+			};
+			buildConfigurationList = 9AA9D83BBE0C4779BEB79660 /* Build configuration list for PBXProject "JUCE" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				660B890A64E549F6A66E9655 /* Custom */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 15EA315B99FA4241989FFAD2;
+			projectDirPath = /Users/adriendeurveilher/Desktop/JUCE;
+			projectRoot = "";
+			targets = (
+				302B8F9593CD9E47ADDDE1FE /* ALL_BUILD */,
+				96AB2B67C4C92B5D8722F76A /* install */,
+				CEE75BB69C85C9BCBA6ECC35 /* juceaide */,
+				8AA990460A3E3EB0BEF54C90 /* ZERO_CHECK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		76A3F17D0786E0276576E8FF /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools/CMakeFiles/ALL_BUILD"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Custom\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		815E0AD9316F8F4941E69498 /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools/CMakeFiles/ZERO_CHECK"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Custom\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools
+  make -f /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		87AF4882E018677E2624B544 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "CMake PostBuild Rules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Custom\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools
+  /opt/homebrew/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAC9D3AF041A4180B2B7A594 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B99E76202754D9DA789BAAD /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */,
+				0D986AB9A79F43C98AE52E6A /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/juceaide/Main.cpp */,
+				65049E30BD314050B2E62B20 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core.mm */,
+				ED2FF2BE2A234BE8AB7BA790 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_CompilationTime.cpp */,
+				B7D7BF107B6F471E8335E98F /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_zlib.c */,
+				AEB6EF0C4A664671A852EEB4 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_events/juce_events.mm */,
+				3ACF496B1E064AD288C48F2C /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics.mm */,
+				497C03D287994843AF42185F /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp */,
+				A07B1988648B4432A5629C08 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c */,
+				D21B1BECF97F4021A4935D64 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_1.c */,
+				43639703DF9745CF90DF0ABB /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_2.c */,
+				A10E0D720A1E43E8934A2395 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libjpg_3.c */,
+				6B73C215CC6F4C0C9AB1E3FD /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_libpng.c */,
+				D7832F75ED344DA084F35B0B /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_lunasvg.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02091CBEFEA84780A66231D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AA990460A3E3EB0BEF54C90 /* ZERO_CHECK */;
+			targetProxy = 1340CA60FF9541D08956FC00 /* PBXContainerItemProxy */;
+		};
+		9FD9D8F6D4974442BE0A2038 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEE75BB69C85C9BCBA6ECC35 /* juceaide */;
+			targetProxy = 37BE23FFE2BC41DE9E480C58 /* PBXContainerItemProxy */;
+		};
+		C4CC529F14594456BC47160D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AA990460A3E3EB0BEF54C90 /* ZERO_CHECK */;
+			targetProxy = 27E2EE7887BD432D8CB9CF58 /* PBXContainerItemProxy */;
+		};
+		C5A0C6193CB84D119C2FE963 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 302B8F9593CD9E47ADDDE1FE /* ALL_BUILD */;
+			targetProxy = DC08748408984C7A8C628DA4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		174E5DC094BA4BB4BEADA7AE /* Custom */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools/build";
+			};
+			name = Custom;
+		};
+		2E36CC82B07E4FB4837D0AC4 /* Custom */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Custom;
+		};
+		43A60AC9945C41E8AA0F16AE /* Custom */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/Custom";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_STANDALONE_APPLICATION=1'","'JUCE_IN_APP_PURCHASES=0'","'JUCE_DISABLE_JUCE_VERSION_PRINTING=1'","'JUCE_USE_CURL=0'","'JUCE_SILENCE_XCODE_15_LINKER_WARNING=1'","'JUCE_MODULE_AVAILABLE_juce_build_tools=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'NDEBUG=1'","'_NDEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/JuceLibraryCode",/Users/adriendeurveilher/Desktop/JUCE/extras/Build,/Users/adriendeurveilher/Desktop/JUCE/modules,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = ("-Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Wconstant-conversion -Wsign-conversion -Wbool-conversion -Wextra-semi -Wunreachable-code -Wcast-align -Wshift-sign-overflow -Wmissing-prototypes -Wnullable-to-nonnull-conversion -Wno-ignored-qualifiers -Wswitch-enum -Wpedantic -Wdeprecated -Wfloat-equal -Wmissing-field-initializers ","$(inherited)");
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17' -Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Wconstant-conversion -Wsign-conversion -Wbool-conversion -Wextra-semi -Wunreachable-code -Wcast-align -Wshift-sign-overflow -Wmissing-prototypes -Wnullable-to-nonnull-conversion -Wno-ignored-qualifiers -Wswitch-enum -Wpedantic -Wdeprecated -Wfloat-equal -Wmissing-field-initializers -Wzero-as-null-pointer-constant -Wunused-private-field -Woverloaded-virtual -Wreorder -Winconsistent-missing-destructor-override ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework QuartzCore","-framework Cocoa","-framework Foundation","-framework IOKit","-framework Security","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juceaide;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/tools/build/juceaide.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Custom;
+		};
+		9B02C87294844D1D82E4F336 /* Custom */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Custom;
+		};
+		D995175321F248A882BE5EC0 /* Custom */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Custom;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5631293395164A8E88254DED /* Build configuration list for PBXNativeTarget "juceaide" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43A60AC9945C41E8AA0F16AE /* Custom */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Custom;
+		};
+		60AB4496155E4B1EB5BD0712 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D995175321F248A882BE5EC0 /* Custom */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Custom;
+		};
+		926E61F7B07F4BC388A27FA5 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B02C87294844D1D82E4F336 /* Custom */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Custom;
+		};
+		9AA9D83BBE0C4779BEB79660 /* Build configuration list for PBXProject "JUCE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				174E5DC094BA4BB4BEADA7AE /* Custom */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Custom;
+		};
+		F5BCDA200A9249BCAC96B52D /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E36CC82B07E4FB4837D0AC4 /* Custom */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Custom;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA9C8D22D07141CC975A041C /* Project object */;
+}

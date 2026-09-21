@@ -1,0 +1,49 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "661fe3e1fd70bb592d04dae8d11afafb6d989d416451832296bf543f03da884b"
+    },
+    {
+      "guid" : "661fe3e1fd70bb592d04dae8d11afafbe8cac5b326b9cdd155a8035b81586255"
+    },
+    {
+      "guid" : "661fe3e1fd70bb592d04dae8d11afafbc236a259ec63b911b130822a4882ff9a"
+    }
+  ],
+  "containerPath" : "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/KemperControl.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : true,
+  "parameters" : {
+    "action" : "build",
+    "configurationName" : "Release",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "COLOR_DIAGNOSTICS" : "YES",
+          "diagnostic_message_length" : "130",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "schedulerLaneWidthOverride" : 4,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

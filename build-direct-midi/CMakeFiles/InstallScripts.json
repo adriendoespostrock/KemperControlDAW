@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/cmake_install.cmake",
+		"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/cmake_install.cmake",
+		"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/modules/cmake_install.cmake",
+		"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/extras/Build/cmake_install.cmake",
+		"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/JUCE/extras/Build/juceaide/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,30 @@
+dependencies: \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_2.mm \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/system/juce_TargetPlatform.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/system/juce_CompilerWarnings.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBase.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBase.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBuffer.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUUtility.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUInputElement.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUScopeElement.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/ComponentBase.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIUtility.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUOutputElement.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUPlugInDispatch.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBuffer.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBufferAllocator.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUEffectBase.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUEffectBase.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUSilentTimeout.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUInputElement.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIBase.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIBase.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIEffectBase.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIEffectBase.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUOutputElement.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUPlugInDispatch.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUScopeElement.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/ComponentBase.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/MusicDeviceBase.cpp \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/MusicDeviceBase.h

@@ -1,0 +1,46 @@
+{
+  "Name": "Kemper Control",
+  "Version": "0.3.6",
+  "Factory Info": {
+    "Vendor": "Adrien Deurveilher",
+    "URL": "",
+    "E-Mail": "",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false,
+    },
+  },
+  "Classes": [
+    {
+      "CID": "ABCDEF019182FAEB416472314B6D7031",
+      "Category": "Audio Module Class",
+      "Name": "Kemper Control",
+      "Vendor": "Adrien Deurveilher",
+      "Version": "0.3.6",
+      "SDKVersion": "VST 3.8.0",
+      "Sub Categories": [
+        "Instrument",
+      ],
+      "Class Flags": 2,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+    {
+      "CID": "ABCDEF011234ABCD416472314B6D7031",
+      "Category": "Component Controller Class",
+      "Name": "Kemper Control",
+      "Vendor": "Adrien Deurveilher",
+      "Version": "0.3.6",
+      "SDKVersion": "VST 3.8.0",
+      "Sub Categories": [
+        "Instrument",
+      ],
+      "Class Flags": 2,
+      "Cardinality": 2147483647,
+      "Snapshots": [
+      ],
+    },
+  ],
+}

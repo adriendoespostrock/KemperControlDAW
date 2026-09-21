@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		97EEA46B2CA7BF4CF41B9B59 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E920417023FE448CB996CF4F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				CC7DD4E96D11D9E58E7C3F72 /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		9AF9A04FFAE9F46F379B22D0 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5416AD1F6ED94EA797E919B9 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				3A66156A54EF51021B140438 /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				FD2713F52D5E4AA58B4F3595 /* PBXTargetDependency */,
+				6DFAD4963E4940D6A23D7F9F /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		526C91E161254AE7AB055E0A /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/CMake/juce_vst3_helper/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = D578ECDD7D2A440281272F2E /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/CMake/juce_vst3_helper/CMakeLists.txt */; };
+		6F89202B40B9478A901CC812 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3ManifestHelper.cpp */ = {isa = PBXBuildFile; fileRef = ED82112CD12143B58261123F /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3ManifestHelper.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		87CFA13DFA0247FA91C020AC /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		AD3EC9D4A30142EB88BE9B4A /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		E81A075A19D648FCBE62886B /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		F04D9074255E4277A9897D3B /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		307F1DA784B44E72A854D8F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAD37C4F1DC842BFA4542C3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75C6DC80DFC3924AB80648A5;
+			remoteInfo = vst3_helper;
+		};
+		C1292475DAE84BD9A18434E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAD37C4F1DC842BFA4542C3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97EEA46B2CA7BF4CF41B9B59;
+			remoteInfo = ZERO_CHECK;
+		};
+		C374E35708D940FB96736D63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAD37C4F1DC842BFA4542C3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97EEA46B2CA7BF4CF41B9B59;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1BE9A411F2754AFCA6F406A8 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/CMake/juce_vst3_helper/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		D554690A61994FFBA9B39242 /* vst3_helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = vst3_helper; sourceTree = BUILT_PRODUCTS_DIR; };
+		D578ECDD7D2A440281272F2E /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/CMake/juce_vst3_helper/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		ED82112CD12143B58261123F /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3ManifestHelper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = juce_VST3ManifestHelper.cpp; path = /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3ManifestHelper.cpp; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA22DC1DB9024B008B63659E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D61E39AE7B94E519DF9036E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		510ACA0D0DA945A295D17AB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D554690A61994FFBA9B39242 /* vst3_helper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A63E1133B1E435996C0ED8D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8D686B9BD9B743A481547816 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A62CBA09C6554CEFB7FE1F04 /* vst3_helper */ = {
+			isa = PBXGroup;
+			children = (
+				C6BC1D3ECE86401BBBD6A243 /* Source Files */,
+				D578ECDD7D2A440281272F2E /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/CMake/juce_vst3_helper/CMakeLists.txt */,
+			);
+			name = vst3_helper;
+			sourceTree = "<group>";
+		};
+		A9D0B80A70DE45F78DCEA7DB /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				1D61E39AE7B94E519DF9036E /* CMake Rules */,
+				1BE9A411F2754AFCA6F406A8 /* /Users/adriendeurveilher/Desktop/JUCE/extras/Build/CMake/juce_vst3_helper/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		C6BC1D3ECE86401BBBD6A243 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED82112CD12143B58261123F /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3ManifestHelper.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		DAF19B69CAAB4B3A9EA5A99E = {
+			isa = PBXGroup;
+			children = (
+				A9D0B80A70DE45F78DCEA7DB /* ALL_BUILD */,
+				A62CBA09C6554CEFB7FE1F04 /* vst3_helper */,
+				510ACA0D0DA945A295D17AB2 /* Products */,
+				8D686B9BD9B743A481547816 /* Frameworks */,
+				5A63E1133B1E435996C0ED8D /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75C6DC80DFC3924AB80648A5 /* vst3_helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B1719FAB49240A8A9CCAD3F /* Build configuration list for PBXNativeTarget "vst3_helper" */;
+			buildPhases = (
+				03EF627532F44E74A199A6FB /* Sources */,
+				BA22DC1DB9024B008B63659E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C268450C76A4F02A67CEB6E /* PBXTargetDependency */,
+			);
+			name = vst3_helper;
+			productName = vst3_helper;
+			productReference = D554690A61994FFBA9B39242 /* vst3_helper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAD37C4F1DC842BFA4542C3E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2660;
+			};
+			buildConfigurationList = 13420D3BCFF4412E8FF9DA43 /* Build configuration list for PBXProject "juce_vst3_manifest_helper" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				87CFA13DFA0247FA91C020AC /* Debug */,
+				E81A075A19D648FCBE62886B /* Release */,
+				F04D9074255E4277A9897D3B /* MinSizeRel */,
+				AD3EC9D4A30142EB88BE9B4A /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = DAF19B69CAAB4B3A9EA5A99E;
+			projectDirPath = /Users/adriendeurveilher/Desktop/JUCE/extras/Build/CMake/juce_vst3_helper;
+			projectRoot = "";
+			targets = (
+				9AF9A04FFAE9F46F379B22D0 /* ALL_BUILD */,
+				75C6DC80DFC3924AB80648A5 /* vst3_helper */,
+				97EEA46B2CA7BF4CF41B9B59 /* ZERO_CHECK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A66156A54EF51021B140438 /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeFiles/ALL_BUILD"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		CC7DD4E96D11D9E58E7C3F72 /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+"/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeFiles/ZERO_CHECK"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl
+  make -f /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl
+  make -f /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl
+  make -f /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl
+  make -f /Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03EF627532F44E74A199A6FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F89202B40B9478A901CC812 /* /Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3ManifestHelper.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5C268450C76A4F02A67CEB6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97EEA46B2CA7BF4CF41B9B59 /* ZERO_CHECK */;
+			targetProxy = C1292475DAE84BD9A18434E0 /* PBXContainerItemProxy */;
+		};
+		6DFAD4963E4940D6A23D7F9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97EEA46B2CA7BF4CF41B9B59 /* ZERO_CHECK */;
+			targetProxy = C374E35708D940FB96736D63 /* PBXContainerItemProxy */;
+		};
+		FD2713F52D5E4AA58B4F3595 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75C6DC80DFC3924AB80648A5 /* vst3_helper */;
+			targetProxy = 307F1DA784B44E72A854D8F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03021D7D20FE424793E68D85 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/build";
+			};
+			name = MinSizeRel;
+		};
+		1889A73A4AD14F2B9C26DC8C /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/MinSizeRel";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_IN_APP_PURCHASES=0'","'JucePlugin_Build_AU=0'","'JucePlugin_Build_AUv3=0'","'JucePlugin_Build_AAX=0'","'JucePlugin_Build_LV2=0'","'JucePlugin_Build_Standalone=1'","'JucePlugin_Build_Unity=0'","'JucePlugin_Build_VST=0'","'JucePlugin_Build_VST3=1'","'JUCE_SHARED_CODE=1'","'JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone'","'JucePlugin_IsSynth=1'","'JucePlugin_ManufacturerCode=0x41647231'","'JucePlugin_Manufacturer=\"Adrien Deurveilher\"'","'JucePlugin_ManufacturerWebsite=\"\"'","'JucePlugin_ManufacturerEmail=\"\"'","'JucePlugin_PluginCode=0x4b6d7031'","'JucePlugin_ProducesMidiOutput=1'","'JucePlugin_IsMidiEffect=0'","'JucePlugin_WantsMidiInput=1'","'JucePlugin_EditorRequiresKeyboardFocus=0'","'JucePlugin_Name=\"Kemper Control\"'","'JucePlugin_Desc=\"Kemper Control\"'","'JucePlugin_Version=0.3.6'","'JucePlugin_VersionString=\"0.3.6\"'","'JucePlugin_VersionCode=0x306'","'JucePlugin_VSTUniqueID=JucePlugin_PluginCode'","'JucePlugin_VSTCategory=kPlugCategSynth'","'JucePlugin_LV2PluginClass=InstrumentPlugin'","'JucePlugin_Vst3Category=\"Instrument\"'","'JucePlugin_AUMainType='\\''aumu'\\'''","'JucePlugin_AUSubType=JucePlugin_PluginCode'","'JucePlugin_AUExportPrefix=Kemper_ControlAU'","'JucePlugin_AUExportPrefixQuoted=\"Kemper_ControlAU\"'","'JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode'","'JucePlugin_CFBundleIdentifier=com.adrien.kempercontrol'","'JucePlugin_AAXIdentifier=com.adrien.kempercontrol'","'JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode'","'JucePlugin_AAXProductId=JucePlugin_PluginCode'","'JucePlugin_AAXCategory=2048'","'JucePlugin_AAXDisableBypass=0'","'JucePlugin_AAXDisableMultiMono=0'","'JucePlugin_VSTNumMidiInputs=16'","'JucePlugin_VSTNumMidiOutputs=16'","'JucePlugin_Enable_ARA=0'","'JucePlugin_ARAFactoryID=\"com.adrien.kempercontrol.arafactory.0.3.6\"'","'JucePlugin_ARADocumentArchiveID=\"com.adrien.kempercontrol.aradocumentarchive.1\"'","'JucePlugin_ARACompatibleArchiveIDs=\"\"'","'JucePlugin_ARAContentTypes=0'","'JucePlugin_ARATransformationFlags=0'","'JUCE_WEB_BROWSER=0'","'JUCE_USE_CURL=0'","'JUCE_VST3_CAN_REPLACE_VST2=0'","'JUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1'","'JUCE_MODULE_AVAILABLE_juce_audio_processors=1'","'JUCE_MODULE_AVAILABLE_juce_gui_extra=1'","'JUCE_WEBVIEW_INTEROP_LIBRARY_VERSION=\"1.0.0\"'","'JUCE_MODULE_AVAILABLE_juce_gui_basics=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'NDEBUG=1'","'_NDEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","'JUCE_MODULE_AVAILABLE_juce_data_structures=1'","'JUCE_MODULE_AVAILABLE_juce_audio_processors_headless=1'","'JUCE_MODULE_AVAILABLE_juce_audio_basics=1'","'JUCE_MODULE_AVAILABLE_juce_audio_utils=1'","'JUCE_MODULE_AVAILABLE_juce_audio_formats=1'","'JUCE_MODULE_AVAILABLE_juce_audio_devices=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/KemperControl_artefacts/JuceLibraryCode",/Users/adriendeurveilher/Desktop/JUCE/modules,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/VST3_SDK,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lv2,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/serd,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sord,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sord/src,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sratom,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lilv,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lilv/src,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++17' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework Foundation","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = vst3_helper;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/build/vst3_helper.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		1CFBB13DBA064A808316AED0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/Release";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_IN_APP_PURCHASES=0'","'JucePlugin_Build_AU=0'","'JucePlugin_Build_AUv3=0'","'JucePlugin_Build_AAX=0'","'JucePlugin_Build_LV2=0'","'JucePlugin_Build_Standalone=1'","'JucePlugin_Build_Unity=0'","'JucePlugin_Build_VST=0'","'JucePlugin_Build_VST3=1'","'JUCE_SHARED_CODE=1'","'JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone'","'JucePlugin_IsSynth=1'","'JucePlugin_ManufacturerCode=0x41647231'","'JucePlugin_Manufacturer=\"Adrien Deurveilher\"'","'JucePlugin_ManufacturerWebsite=\"\"'","'JucePlugin_ManufacturerEmail=\"\"'","'JucePlugin_PluginCode=0x4b6d7031'","'JucePlugin_ProducesMidiOutput=1'","'JucePlugin_IsMidiEffect=0'","'JucePlugin_WantsMidiInput=1'","'JucePlugin_EditorRequiresKeyboardFocus=0'","'JucePlugin_Name=\"Kemper Control\"'","'JucePlugin_Desc=\"Kemper Control\"'","'JucePlugin_Version=0.3.6'","'JucePlugin_VersionString=\"0.3.6\"'","'JucePlugin_VersionCode=0x306'","'JucePlugin_VSTUniqueID=JucePlugin_PluginCode'","'JucePlugin_VSTCategory=kPlugCategSynth'","'JucePlugin_LV2PluginClass=InstrumentPlugin'","'JucePlugin_Vst3Category=\"Instrument\"'","'JucePlugin_AUMainType='\\''aumu'\\'''","'JucePlugin_AUSubType=JucePlugin_PluginCode'","'JucePlugin_AUExportPrefix=Kemper_ControlAU'","'JucePlugin_AUExportPrefixQuoted=\"Kemper_ControlAU\"'","'JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode'","'JucePlugin_CFBundleIdentifier=com.adrien.kempercontrol'","'JucePlugin_AAXIdentifier=com.adrien.kempercontrol'","'JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode'","'JucePlugin_AAXProductId=JucePlugin_PluginCode'","'JucePlugin_AAXCategory=2048'","'JucePlugin_AAXDisableBypass=0'","'JucePlugin_AAXDisableMultiMono=0'","'JucePlugin_VSTNumMidiInputs=16'","'JucePlugin_VSTNumMidiOutputs=16'","'JucePlugin_Enable_ARA=0'","'JucePlugin_ARAFactoryID=\"com.adrien.kempercontrol.arafactory.0.3.6\"'","'JucePlugin_ARADocumentArchiveID=\"com.adrien.kempercontrol.aradocumentarchive.1\"'","'JucePlugin_ARACompatibleArchiveIDs=\"\"'","'JucePlugin_ARAContentTypes=0'","'JucePlugin_ARATransformationFlags=0'","'JUCE_WEB_BROWSER=0'","'JUCE_USE_CURL=0'","'JUCE_VST3_CAN_REPLACE_VST2=0'","'JUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1'","'JUCE_MODULE_AVAILABLE_juce_audio_processors=1'","'JUCE_MODULE_AVAILABLE_juce_gui_extra=1'","'JUCE_WEBVIEW_INTEROP_LIBRARY_VERSION=\"1.0.0\"'","'JUCE_MODULE_AVAILABLE_juce_gui_basics=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'NDEBUG=1'","'_NDEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","'JUCE_MODULE_AVAILABLE_juce_data_structures=1'","'JUCE_MODULE_AVAILABLE_juce_audio_processors_headless=1'","'JUCE_MODULE_AVAILABLE_juce_audio_basics=1'","'JUCE_MODULE_AVAILABLE_juce_audio_utils=1'","'JUCE_MODULE_AVAILABLE_juce_audio_formats=1'","'JUCE_MODULE_AVAILABLE_juce_audio_devices=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/KemperControl_artefacts/JuceLibraryCode",/Users/adriendeurveilher/Desktop/JUCE/modules,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/VST3_SDK,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lv2,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/serd,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sord,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sord/src,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sratom,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lilv,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lilv/src,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++17' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework Foundation","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = vst3_helper;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/build/vst3_helper.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		2E9421BA585E4F60B8172EEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		2F45DB4FFFA8416F96E27497 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		4F0C4AA2E1B64B04B5482456 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		696642AC5291400C9721240B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/build";
+			};
+			name = Release;
+		};
+		74F6E4B91DEE4EF69DA17470 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/RelWithDebInfo";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_IN_APP_PURCHASES=0'","'JucePlugin_Build_AU=0'","'JucePlugin_Build_AUv3=0'","'JucePlugin_Build_AAX=0'","'JucePlugin_Build_LV2=0'","'JucePlugin_Build_Standalone=1'","'JucePlugin_Build_Unity=0'","'JucePlugin_Build_VST=0'","'JucePlugin_Build_VST3=1'","'JUCE_SHARED_CODE=1'","'JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone'","'JucePlugin_IsSynth=1'","'JucePlugin_ManufacturerCode=0x41647231'","'JucePlugin_Manufacturer=\"Adrien Deurveilher\"'","'JucePlugin_ManufacturerWebsite=\"\"'","'JucePlugin_ManufacturerEmail=\"\"'","'JucePlugin_PluginCode=0x4b6d7031'","'JucePlugin_ProducesMidiOutput=1'","'JucePlugin_IsMidiEffect=0'","'JucePlugin_WantsMidiInput=1'","'JucePlugin_EditorRequiresKeyboardFocus=0'","'JucePlugin_Name=\"Kemper Control\"'","'JucePlugin_Desc=\"Kemper Control\"'","'JucePlugin_Version=0.3.6'","'JucePlugin_VersionString=\"0.3.6\"'","'JucePlugin_VersionCode=0x306'","'JucePlugin_VSTUniqueID=JucePlugin_PluginCode'","'JucePlugin_VSTCategory=kPlugCategSynth'","'JucePlugin_LV2PluginClass=InstrumentPlugin'","'JucePlugin_Vst3Category=\"Instrument\"'","'JucePlugin_AUMainType='\\''aumu'\\'''","'JucePlugin_AUSubType=JucePlugin_PluginCode'","'JucePlugin_AUExportPrefix=Kemper_ControlAU'","'JucePlugin_AUExportPrefixQuoted=\"Kemper_ControlAU\"'","'JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode'","'JucePlugin_CFBundleIdentifier=com.adrien.kempercontrol'","'JucePlugin_AAXIdentifier=com.adrien.kempercontrol'","'JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode'","'JucePlugin_AAXProductId=JucePlugin_PluginCode'","'JucePlugin_AAXCategory=2048'","'JucePlugin_AAXDisableBypass=0'","'JucePlugin_AAXDisableMultiMono=0'","'JucePlugin_VSTNumMidiInputs=16'","'JucePlugin_VSTNumMidiOutputs=16'","'JucePlugin_Enable_ARA=0'","'JucePlugin_ARAFactoryID=\"com.adrien.kempercontrol.arafactory.0.3.6\"'","'JucePlugin_ARADocumentArchiveID=\"com.adrien.kempercontrol.aradocumentarchive.1\"'","'JucePlugin_ARACompatibleArchiveIDs=\"\"'","'JucePlugin_ARAContentTypes=0'","'JucePlugin_ARATransformationFlags=0'","'JUCE_WEB_BROWSER=0'","'JUCE_USE_CURL=0'","'JUCE_VST3_CAN_REPLACE_VST2=0'","'JUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1'","'JUCE_MODULE_AVAILABLE_juce_audio_processors=1'","'JUCE_MODULE_AVAILABLE_juce_gui_extra=1'","'JUCE_WEBVIEW_INTEROP_LIBRARY_VERSION=\"1.0.0\"'","'JUCE_MODULE_AVAILABLE_juce_gui_basics=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'NDEBUG=1'","'_NDEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","'JUCE_MODULE_AVAILABLE_juce_data_structures=1'","'JUCE_MODULE_AVAILABLE_juce_audio_processors_headless=1'","'JUCE_MODULE_AVAILABLE_juce_audio_basics=1'","'JUCE_MODULE_AVAILABLE_juce_audio_utils=1'","'JUCE_MODULE_AVAILABLE_juce_audio_formats=1'","'JUCE_MODULE_AVAILABLE_juce_audio_devices=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/KemperControl_artefacts/JuceLibraryCode",/Users/adriendeurveilher/Desktop/JUCE/modules,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/VST3_SDK,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lv2,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/serd,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sord,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sord/src,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sratom,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lilv,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lilv/src,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++17' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework Foundation","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = vst3_helper;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/build/vst3_helper.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		7E350063D32D4AD4AABE3632 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		8FA847BCDB5E499ABFE640FF /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		AD445316A5D4401B8AB4104A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		B8348B1E1BE942468690984F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk;
+				SYMROOT = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/build";
+			};
+			name = Debug;
+		};
+		CA93A1A62AC04B8BBA1E0E9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_IN_APP_PURCHASES=0'","'JucePlugin_Build_AU=0'","'JucePlugin_Build_AUv3=0'","'JucePlugin_Build_AAX=0'","'JucePlugin_Build_LV2=0'","'JucePlugin_Build_Standalone=1'","'JucePlugin_Build_Unity=0'","'JucePlugin_Build_VST=0'","'JucePlugin_Build_VST3=1'","'JUCE_SHARED_CODE=1'","'JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone'","'JucePlugin_IsSynth=1'","'JucePlugin_ManufacturerCode=0x41647231'","'JucePlugin_Manufacturer=\"Adrien Deurveilher\"'","'JucePlugin_ManufacturerWebsite=\"\"'","'JucePlugin_ManufacturerEmail=\"\"'","'JucePlugin_PluginCode=0x4b6d7031'","'JucePlugin_ProducesMidiOutput=1'","'JucePlugin_IsMidiEffect=0'","'JucePlugin_WantsMidiInput=1'","'JucePlugin_EditorRequiresKeyboardFocus=0'","'JucePlugin_Name=\"Kemper Control\"'","'JucePlugin_Desc=\"Kemper Control\"'","'JucePlugin_Version=0.3.6'","'JucePlugin_VersionString=\"0.3.6\"'","'JucePlugin_VersionCode=0x306'","'JucePlugin_VSTUniqueID=JucePlugin_PluginCode'","'JucePlugin_VSTCategory=kPlugCategSynth'","'JucePlugin_LV2PluginClass=InstrumentPlugin'","'JucePlugin_Vst3Category=\"Instrument\"'","'JucePlugin_AUMainType='\\''aumu'\\'''","'JucePlugin_AUSubType=JucePlugin_PluginCode'","'JucePlugin_AUExportPrefix=Kemper_ControlAU'","'JucePlugin_AUExportPrefixQuoted=\"Kemper_ControlAU\"'","'JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode'","'JucePlugin_CFBundleIdentifier=com.adrien.kempercontrol'","'JucePlugin_AAXIdentifier=com.adrien.kempercontrol'","'JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode'","'JucePlugin_AAXProductId=JucePlugin_PluginCode'","'JucePlugin_AAXCategory=2048'","'JucePlugin_AAXDisableBypass=0'","'JucePlugin_AAXDisableMultiMono=0'","'JucePlugin_VSTNumMidiInputs=16'","'JucePlugin_VSTNumMidiOutputs=16'","'JucePlugin_Enable_ARA=0'","'JucePlugin_ARAFactoryID=\"com.adrien.kempercontrol.arafactory.0.3.6\"'","'JucePlugin_ARADocumentArchiveID=\"com.adrien.kempercontrol.aradocumentarchive.1\"'","'JucePlugin_ARACompatibleArchiveIDs=\"\"'","'JucePlugin_ARAContentTypes=0'","'JucePlugin_ARATransformationFlags=0'","'JUCE_WEB_BROWSER=0'","'JUCE_USE_CURL=0'","'JUCE_VST3_CAN_REPLACE_VST2=0'","'JUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1'","'JUCE_MODULE_AVAILABLE_juce_audio_processors=1'","'JUCE_MODULE_AVAILABLE_juce_gui_extra=1'","'JUCE_WEBVIEW_INTEROP_LIBRARY_VERSION=\"1.0.0\"'","'JUCE_MODULE_AVAILABLE_juce_gui_basics=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'NDEBUG=1'","'_NDEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","'JUCE_MODULE_AVAILABLE_juce_data_structures=1'","'JUCE_MODULE_AVAILABLE_juce_audio_processors_headless=1'","'JUCE_MODULE_AVAILABLE_juce_audio_basics=1'","'JUCE_MODULE_AVAILABLE_juce_audio_utils=1'","'JUCE_MODULE_AVAILABLE_juce_audio_formats=1'","'JUCE_MODULE_AVAILABLE_juce_audio_devices=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/KemperControl_artefacts/JuceLibraryCode",/Users/adriendeurveilher/Desktop/JUCE/modules,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/VST3_SDK,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lv2,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/serd,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sord,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sord/src,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/sratom,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lilv,/Users/adriendeurveilher/Desktop/JUCE/modules/juce_audio_processors_headless/format_types/LV2_SDK/lilv/src,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++17' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-framework Foundation","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = vst3_helper;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/build/vst3_helper.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		CB0A7C1EC0FE41BFB99B9E4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		F5DB2485790B43EC9270FB20 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		FD79F28F6FF64367B2513C17 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/adriendeurveilher/Desktop/KemperControl/build-direct-midi/vst3_helpers/KemperControl/build";
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13420D3BCFF4412E8FF9DA43 /* Build configuration list for PBXProject "juce_vst3_manifest_helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8348B1E1BE942468690984F /* Debug */,
+				696642AC5291400C9721240B /* Release */,
+				03021D7D20FE424793E68D85 /* MinSizeRel */,
+				FD79F28F6FF64367B2513C17 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5416AD1F6ED94EA797E919B9 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB0A7C1EC0FE41BFB99B9E4E /* Debug */,
+				2F45DB4FFFA8416F96E27497 /* Release */,
+				4F0C4AA2E1B64B04B5482456 /* MinSizeRel */,
+				7E350063D32D4AD4AABE3632 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7B1719FAB49240A8A9CCAD3F /* Build configuration list for PBXNativeTarget "vst3_helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA93A1A62AC04B8BBA1E0E9F /* Debug */,
+				1CFBB13DBA064A808316AED0 /* Release */,
+				1889A73A4AD14F2B9C26DC8C /* MinSizeRel */,
+				74F6E4B91DEE4EF69DA17470 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E920417023FE448CB996CF4F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E9421BA585E4F60B8172EEA /* Debug */,
+				AD445316A5D4401B8AB4104A /* Release */,
+				8FA847BCDB5E499ABFE640FF /* MinSizeRel */,
+				F5DB2485790B43EC9270FB20 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAD37C4F1DC842BFA4542C3E /* Project object */;
+}

@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/juce_graphics_lunasvg.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/system/juce_CompilerWarnings.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/system/juce_TargetPlatform.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-blend.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-private.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/../include/plutovg.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-utils.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-canvas.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-font.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-stb-truetype.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-ft-math.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-ft-math.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-ft-types.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-ft-raster.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-ft-raster.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-ft-stroker.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-ft-stroker.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-matrix.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-paint.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-path.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-rasterize.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-surface.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-stb-image-write.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_graphics/drawables/lunasvg/plutovg/source/plutovg-stb-image.h

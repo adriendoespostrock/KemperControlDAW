@@ -1,0 +1,18 @@
+Target dependency graph (7 targets)
+Target 'KemperControlLogic_AU' in project 'KemperControl'
+➜ Explicit dependency on target 'KemperControlLogic' in project 'KemperControl'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'KemperControl'
+Target 'KemperControlLogic' in project 'KemperControl'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'KemperControl'
+Target 'KemperControl_Standalone' in project 'KemperControl'
+➜ Explicit dependency on target 'KemperControl' in project 'KemperControl'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'KemperControl'
+Target 'KemperControl_VST3' in project 'KemperControl'
+➜ Explicit dependency on target 'KemperControl' in project 'KemperControl'
+➜ Explicit dependency on target 'KemperControl_vst3_helper' in project 'KemperControl'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'KemperControl'
+Target 'KemperControl_vst3_helper' in project 'KemperControl'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'KemperControl'
+Target 'KemperControl' in project 'KemperControl'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'KemperControl'
+Target 'ZERO_CHECK' in project 'KemperControl' (no dependencies)

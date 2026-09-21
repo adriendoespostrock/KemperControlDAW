@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/juce_core_zlib.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/system/juce_CompilerWarnings.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/system/juce_TargetPlatform.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/adler32.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/zutil.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/zlib.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/zconf.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/compress.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/crc32.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/crc32.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/deflate.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/deflate.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/inffast.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/inftrees.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/inflate.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/inffast.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/inflate.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/inftrees.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/inffixed.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/trees.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/trees.h \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/zutil.c \
+  /Users/adriendeurveilher/Desktop/JUCE/modules/juce_core/zip/zlib/gzguts.h
