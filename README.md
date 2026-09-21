@@ -1,5 +1,7 @@
 # KemperControlDAW
 
+![KemperControlDAW interface](assets/kempercontroldaw-interface.png)
+
 KemperControlDAW is an open-source JUCE MIDI control interface for the Kemper Player, designed to bring clear, visual Kemper control directly into a DAW.
 
 It is designed for Logic Pro, Ableton Live and other DAWs, allowing musicians to automate Kemper changes throughout a song or backing track without entering MIDI CC values manually.
