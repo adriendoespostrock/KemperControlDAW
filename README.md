@@ -113,3 +113,6 @@ The plugin does not generate audio. The VST3 version includes a silent audio out
 ## About
 
 KemperControlDAW was developed by Adrien Deurveilher, guitarist of [When Waves Collide](https://www.youtube.com/@WhenWavesCollide).
+
+## Just so you know
+Just for transparency: this app was vibe-coded with AI. I'm not a professional developer, just a guitarist who wanted to build a useful tool for the Kemper Player.
