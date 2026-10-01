@@ -1,0 +1,95 @@
+#include "../Source/KemperProtocol.h"
+#include <cassert>
+#include <iostream>
+
+using Bytes = std::vector<std::uint8_t>;
+
+static kemper::Result feed(kemper::RigState& state, const Bytes& message, int channel = 1)
+{
+    return kemper::apply(state, message.data(), message.size(), channel);
+}
+
+int main()
+{
+    // All messages below were captured from a Profiler Rack (tools/kemper_probe.py).
+    kemper::RigState state;
+    using kemper::Result;
+
+    assert(feed(state, { 0xf0,0x00,0x20,0x33,0x02,0x7f,0x7e,0x00,0x7f,0x05,0xf7 })
+           == Result::beaconAck);
+
+    // Rig name "Saturday Night".
+    assert(feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x03,0x00,0x00,0x01,
+                         'S','a','t','u','r','d','a','y',' ','N','i','g','h','t',0x00,0xf7 })
+           == Result::changed);
+    assert(state.rigName == "Saturday Night");
+
+    // Performance name and slot 3 name.
+    feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x07,0x00,0x00,0x00,0x01,0x00,0x00,
+                  'S','o','n','g',' ','A',0x00,0xf7 });
+    feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x07,0x00,0x00,0x00,0x01,0x00,0x03,
+                  'S','o','l','o',0x00,0xf7 });
+    assert(state.performanceName == "Song A");
+    assert(state.slotNames[2] == "Solo");
+
+    // Slot 5 disabled.
+    feed(state, { 0xf0,0x00,0x20,0x33,0x02,0x00,0x06,0x00,0x00,0x00,0x01,0x00,0x05,
+                  0x00,0x00,0x00,0x00,0x00,0xf7 });
+    assert(state.slotEnabled[4] == 0);
+
+    // Stomp A: COMP (type 49), on; then switched off by footswitch.
+    feed(state, { 0xf0,0x00,0x20,0x33,0x02,0x7f,0x3c,0x00,0x32,0x00,0x00,0x31,
+                  'C','O','M','P',0x00,0xf7 });
+    feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x01,0x00,0x32,0x03,0x00,0x01,0xf7 });
+    assert(state.effects[0].type == 49 && state.effects[0].name == "COMP");
+    assert(state.effects[0].on == 1);
+    assert(feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x01,0x00,0x32,0x03,0x00,0x00,0xf7 })
+           == Result::changed);
+    assert(state.effects[0].on == 0);
+
+    // REV type 177 uses both value bytes.
+    feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x01,0x00,0x3d,0x00,0x01,0x31,0xf7 });
+    assert(state.effects[7].type == 177);
+
+    // Bank select + program change 0x1C = performance 6, slot 4.
+    feed(state, { 0xb0,0x20,0x00 });
+    assert(feed(state, { 0xc0,0x1c }) == Result::changed);
+    assert(state.performance == 6 && state.slot == 4);
+
+    // Program change on another channel is ignored.
+    assert(feed(state, { 0xc1,0x00 }) == Result::ignored);
+    assert(state.performance == 6);
+
+    // Tuner traffic and repeats change nothing.
+    assert(feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x01,0x00,0x7c,0x0f,0x64,0x40,0xf7 })
+           == Result::ignored);
+    assert(feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x01,0x00,0x3d,0x00,0x01,0x31,0xf7 })
+           == Result::ignored);
+
+    // Truncated / foreign SysEx is ignored.
+    assert(feed(state, { 0xf0,0x00,0x20,0x33,0x00,0x00,0x07,0xf7 }) == Result::ignored);
+    assert(feed(state, { 0xf0,0x7e,0x00,0x06,0x02,0x00,0x00,0x00,0xf7 }) == Result::ignored);
+
+    // Stream reassembly: SysEx split across packets with a clock byte inside,
+    // then a CC using running status.
+    kemper::StreamParser parser;
+    std::vector<Bytes> messages;
+    const auto collect = [&] (const std::uint8_t* d, std::size_t n) { messages.emplace_back(d, d + n); };
+    const Bytes part1 { 0xf0,0x00,0x20,0x33,0xf8,0x00 };
+    const Bytes part2 { 0x00,0x7e,0x00,0x7f,0x01,0xf7, 0xb0,0x2f,0x7f, 0x20,0x00 };
+    parser.feed(part1.data(), part1.size(), collect);
+    assert(messages.empty());
+    parser.feed(part2.data(), part2.size(), collect);
+    assert(messages.size() == 3);
+    assert((messages[0] == Bytes { 0xf0,0x00,0x20,0x33,0x00,0x00,0x7e,0x00,0x7f,0x01,0xf7 }));
+    assert((messages[1] == Bytes { 0xb0,0x2f,0x7f }));
+    assert((messages[2] == Bytes { 0xb0,0x20,0x00 }));
+
+    // A status byte aborts an unterminated SysEx; program change is 2 bytes.
+    messages.clear();
+    const Bytes aborted { 0xf0,0x00,0x20,0xc0,0x05 };
+    parser.feed(aborted.data(), aborted.size(), collect);
+    assert(messages.size() == 1 && (messages[0] == Bytes { 0xc0,0x05 }));
+
+    std::cout << "Kemper protocol parsing: PASS\n";
+}

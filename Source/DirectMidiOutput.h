@@ -2,16 +2,20 @@
 #include <JuceHeader.h>
 #include "MidiPacketQueue.h"
 
-class DirectMidiOutput final : private juce::Thread
+// JUCE 8 MIDI devices must be opened on the message thread; the worker only sends.
+class DirectMidiOutput final : private juce::Thread, private juce::Timer
 {
 public:
     struct Settings { juce::String id, name; int channel = 1; };
-    DirectMidiOutput() : Thread("Kemper direct MIDI") { startThread(); }
+    DirectMidiOutput() : Thread("Kemper direct MIDI") { startThread(); startTimerHz(20); }
     ~DirectMidiOutput() override
     {
+        stopTimer();
         signalThreadShouldExit();
         notify();
-        stopThread(-1); // The device is opened/closed exclusively by this worker.
+        stopThread(-1);
+        const juce::ScopedLock lock(outputLock);
+        output.reset();
     }
     Settings getSettings() const
     {
@@ -67,69 +71,85 @@ private:
         const juce::ScopedLock lock(settingsLock);
         status = text;
     }
-    void run() override
+    void timerCallback() override
     {
-        std::unique_ptr<juce::MidiOutput> output;
-        std::uint64_t applied = 0;
-        double lastDeviceCheck = 0;
-        Settings current;
-        while (!threadShouldExit())
+        const auto now = juce::Time::getMillisecondCounterHiRes();
+        const auto desired = requested.load();
+        if (desired != applied.load())
         {
-            const auto desired = requested.load();
-            if (desired != applied)
+            ready.store(0);
+            {
+                const juce::ScopedLock lock(outputLock);
+                output.reset();
+            }
+            current = getSettings();
+            auto next = current.id.isNotEmpty() ? juce::MidiOutput::openDevice(current.id)
+                                                : nullptr;
+            const bool opened = next != nullptr;
+            {
+                const juce::ScopedLock lock(outputLock);
+                output = std::move(next);
+                activeChannel.store(current.channel);
+                applied.store(desired);
+            }
+            lastDeviceCheck = now;
+            if (opened && requested.load() == desired)
+            {
+                ready.store(desired);
+                setStatus("Connecte : " + current.name);
+            }
+            else
+                setStatus(current.id.isEmpty() ? "Choisir une sortie MIDI"
+                                             : "Port indisponible : cliquer Actualiser");
+            return;
+        }
+        if (ready.load() != 0 && now - lastDeviceCheck > 1000.0)
+        {
+            lastDeviceCheck = now;
+            bool exists = false;
+            for (const auto& device : juce::MidiOutput::getAvailableDevices())
+                if (device.identifier == current.id) exists = true;
+            if (!exists)
             {
                 ready.store(0);
+                const juce::ScopedLock lock(outputLock);
                 output.reset();
-                current = getSettings();
-                activeChannel.store(current.channel);
-                if (current.id.isNotEmpty())
-                    output = juce::MidiOutput::openDevice(current.id);
-                applied = desired;
-                if (output && requested.load() == applied)
-                {
-                    ready.store(applied);
-                    setStatus("Connecte : " + current.name);
-                }
-                else
-                    setStatus(current.id.isEmpty() ? "Choisir une sortie MIDI"
-                                                 : "Port indisponible : cliquer Actualiser");
+                setStatus("Port deconnecte : cliquer Actualiser apres reconnexion");
             }
-            const auto now = juce::Time::getMillisecondCounterHiRes();
-            if (output && now - lastDeviceCheck > 1000.0)
+        }
+    }
+    void run() override
+    {
+        while (!threadShouldExit())
+        {
             {
-                lastDeviceCheck = now;
-                bool exists = false;
-                for (const auto& device : juce::MidiOutput::getAvailableDevices())
-                    if (device.identifier == current.id) exists = true;
-                if (!exists)
+                const juce::ScopedLock lock(outputLock);
+                const auto generation = applied.load();
+                MidiPacket packet;
+                while (queue.peek(packet))
                 {
-                    ready.store(0);
-                    output.reset();
-                    setStatus("Port deconnecte : cliquer Actualiser apres reconnexion");
-                }
-            }
-            MidiPacket packet;
-            while (queue.peek(packet))
-            {
-                if (!output || !realtime.load() || packet.generation != applied
-                    || packet.generation != requested.load())
-                {
+                    if (!output || !realtime.load() || packet.generation != generation
+                        || packet.generation != requested.load())
+                    {
+                        queue.pop();
+                        continue;
+                    }
+                    if (packet.dueMs > juce::Time::getMillisecondCounterHiRes()) break;
+                    output->sendMessageNow(juce::MidiMessage(packet.bytes.data(), packet.size));
                     queue.pop();
-                    continue;
                 }
-                if (packet.dueMs > juce::Time::getMillisecondCounterHiRes()) break;
-                output->sendMessageNow(juce::MidiMessage(packet.bytes.data(), packet.size));
-                queue.pop();
             }
             wait(1);
         }
-        ready.store(0);
-        output.reset();
     }
+    juce::CriticalSection outputLock;
+    std::unique_ptr<juce::MidiOutput> output;
+    Settings current;
+    double lastDeviceCheck = 0;
     mutable juce::CriticalSection settingsLock;
     Settings settings;
     juce::String status = "Choisir une sortie MIDI";
-    std::atomic<std::uint64_t> requested{1}, ready{0}, dropped{0};
+    std::atomic<std::uint64_t> requested{1}, applied{0}, ready{0}, dropped{0};
     std::atomic<int> activeChannel{1};
     std::atomic<bool> realtime{true};
     MidiPacketQueue<8192> queue;

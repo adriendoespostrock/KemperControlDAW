@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 #include "DirectMidiOutput.h"
+#include "KemperLink.h"
 
 class KemperControlAudioProcessor : public juce::AudioProcessor
 {
@@ -35,10 +36,20 @@ public:
 
     juce::AudioProcessorValueTreeState parameters;
     DirectMidiOutput directOutput;
+    KemperLink kemperLink { directOutput }; // must follow directOutput
     void requestResend() noexcept { resendRequested.store(true); }
+
+    bool getFollowKemper() const noexcept { return followKemper.load(); }
+    void setFollowKemper(bool shouldFollow);
+    // Send even if the parameter already holds the value.
+    void forceEffectSend(int index) noexcept { forcedEffects.fetch_or(1 << index); }
+    void forceSlotSend() noexcept { forcedSlot.store(true); }
 
 private:
     static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+
+    void handleKemperState(const kemper::RigState&);
+    void setParameterFromKemper(const juce::String& id, float value);
 
     void sendBankAndSlot(juce::MidiBuffer& output, int samplePosition,
                          int bank, int slot) const;
@@ -54,6 +65,15 @@ private:
 
     void resetPreviousValues();
     std::atomic<bool> resendRequested{false};
+    std::atomic<bool> adoptOnNextBlock{true};
+
+    // Kemper state for echo suppression, -1 = unknown.
+    std::atomic<int> hardwareBank{-1}, hardwareSlot{-1};
+    std::array<std::atomic<int>, 8> hardwareEffects;
+    std::atomic<bool> followKemper{false}, forcedSlot{false};
+    // Odd while handleKemperState writes parameters.
+    std::atomic<std::uint32_t> followerSequence{0};
+    std::atomic<int> forcedEffects{0};
     std::uint64_t previousOutputGeneration = 0;
     bool wasOffline = false;
     int previousBank = -1;

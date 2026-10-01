@@ -12,7 +12,9 @@ function(configure_kemper_target target)
     target_sources(${target} PRIVATE
         Source/PluginProcessor.cpp Source/PluginProcessor.h
         Source/PluginEditor.cpp Source/PluginEditor.h
-        Source/DirectMidiOutput.h Source/MidiPacketQueue.h)
+        Source/DirectMidiOutput.h Source/MidiPacketQueue.h
+        Source/KemperLink.h Source/KemperPort.h Source/KemperPort.cpp
+        Source/KemperProtocol.h)
     target_compile_features(${target} PRIVATE cxx_std_17)
     target_compile_definitions(${target} PRIVATE
         JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0 JUCE_VST3_CAN_REPLACE_VST2=0)
@@ -48,4 +50,27 @@ if(APPLE)
         AU_MAIN_TYPE kAudioUnitType_MIDIProcessor
         COPY_PLUGIN_AFTER_BUILD TRUE)
     configure_kemper_target(KemperControlLogic)
+endif()
+
+# Developer tools and tests.
+option(KEMPER_BUILD_TOOLS "Build developer tools" OFF)
+if(KEMPER_BUILD_TOOLS)
+    juce_add_console_app(KemperLinkCheck PRODUCT_NAME "KemperLinkCheck")
+    juce_generate_juce_header(KemperLinkCheck)
+    target_sources(KemperLinkCheck PRIVATE tools/link_check/main.cpp Source/KemperPort.cpp)
+    target_compile_features(KemperLinkCheck PRIVATE cxx_std_17)
+    target_compile_definitions(KemperLinkCheck PRIVATE
+        JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0 JUCE_MODAL_LOOPS_PERMITTED=1)
+    target_link_libraries(KemperLinkCheck PRIVATE juce::juce_audio_devices
+        juce::juce_events juce::juce_recommended_config_flags)
+
+    enable_testing()
+    find_package(Threads REQUIRED)
+    add_executable(kemper_protocol_test tests/kemper_protocol_test.cpp)
+    add_executable(queue_test tests/queue_test.cpp)
+    target_link_libraries(queue_test PRIVATE Threads::Threads)
+    foreach(test kemper_protocol_test queue_test)
+        target_compile_features(${test} PRIVATE cxx_std_17)
+        add_test(NAME ${test} COMMAND ${test})
+    endforeach()
 endif()

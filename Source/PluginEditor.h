@@ -27,6 +27,7 @@ public:
     static juce::Colour surface() noexcept { return juce::Colour(0xff252e32); }
     static juce::Colour text() noexcept { return juce::Colour(0xffd8e0e2); }
     static juce::Colour muted() noexcept { return juce::Colour(0xff8b9a9f); }
+    static juce::Colour hardware() noexcept { return juce::Colour(0xffffb340); }
 };
 
 class KemperControlAudioProcessorEditor : public juce::AudioProcessorEditor,
@@ -52,22 +53,22 @@ private:
     void configureToggle(juce::ToggleButton&, const juce::String& label,
                          const juce::String& tooltip);
     void configureDial(juce::Slider&, const juce::String& tooltip);
+    void updateKemperState();
 
     juce::Array<juce::MidiDeviceInfo> midiPorts;
     juce::ComboBox midiOutputBox, midiChannelBox;
     juce::TextButton aboutButton{"ABOUT"};
     juce::TextButton resendButton{"SEND STATE"};
-    juce::Label midiStatus, bankReadout;
+    juce::ToggleButton followButton;
+    juce::Label midiStatus, bankReadout, kemperReadout;
     int portRefreshTicks = 0;
 
     juce::Slider bankSlider;
-    std::unique_ptr<SliderAttachment> bankAttachment;
 
     std::array<juce::ToggleButton, 5> rigButtons;
     std::array<std::unique_ptr<ButtonAttachment>, 5> rigAttachments;
 
     std::array<juce::ToggleButton, 8> effectButtons;
-    std::array<std::unique_ptr<ButtonAttachment>, 8> effectAttachments;
 
     std::array<juce::ToggleButton, 4> extraButtons;
     std::array<std::unique_ptr<ButtonAttachment>, 4> extraAttachments;

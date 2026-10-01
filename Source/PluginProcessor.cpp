@@ -62,6 +62,53 @@ KemperControlAudioProcessor::KemperControlAudioProcessor()
     previousEffects.fill(-1);
     previousExtraButtons.fill(-1);
     previousLooperButtons.fill(-1);
+    for (auto& effect : hardwareEffects) effect.store(-1);
+    kemperLink.onChange = [this] (const kemper::RigState& state) { handleKemperState(state); };
+}
+
+void KemperControlAudioProcessor::setFollowKemper(bool shouldFollow)
+{
+    followKemper.store(shouldFollow);
+    if (shouldFollow) handleKemperState(kemperLink.snapshot());
+    updateHostDisplay(juce::AudioProcessor::ChangeDetails{}.withNonParameterStateChanged(true));
+}
+
+void KemperControlAudioProcessor::setParameterFromKemper(const juce::String& id, float value)
+{
+    auto* parameter = parameters.getParameter(id);
+    const auto normalised = parameter->convertTo0to1(value);
+    if (std::abs(parameter->getValue() - normalised) < 1.0e-6f) return;
+    parameter->beginChangeGesture();
+    parameter->setValueNotifyingHost(normalised);
+    parameter->endChangeGesture();
+}
+
+void KemperControlAudioProcessor::handleKemperState(const kemper::RigState& state)
+{
+    const bool known = state.responding;
+    const bool bankKnown = known && juce::isPositiveAndNotGreaterThan(state.performance, 124);
+    hardwareBank.store(bankKnown ? state.performance : -1);
+    hardwareSlot.store(bankKnown ? state.slot : -1);
+    for (size_t i = 0; i < hardwareEffects.size(); ++i)
+        hardwareEffects[i].store(known ? state.effects[i].on : -1);
+
+    if (!known || !followKemper.load()) return;
+
+    followerSequence.fetch_add(1);
+    if (bankKnown)
+    {
+        setParameterFromKemper("bank", static_cast<float>(state.performance - 1));
+        setParameterFromKemper("slot", static_cast<float>(state.slot - 1));
+    }
+    const std::array<const char*, 8> effectNames =
+    {
+        "effectA", "effectB", "effectC", "effectD",
+        "effectX", "effectMOD", "effectDLY", "effectREV"
+    };
+    for (size_t i = 0; i < effectNames.size(); ++i)
+        if (state.effects[i].on >= 0)
+            setParameterFromKemper(effectNames[i], static_cast<float>(state.effects[i].on));
+    followerSequence.fetch_add(1);
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout
@@ -148,7 +195,7 @@ KemperControlAudioProcessor::createParameterLayout()
 
 void KemperControlAudioProcessor::prepareToPlay(double, int)
 {
-    resetPreviousValues();
+    adoptOnNextBlock = true;
 }
 
 void KemperControlAudioProcessor::resetPreviousValues()
@@ -261,14 +308,27 @@ void KemperControlAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     directOutput.setRealtime(!offline);
     if (offline) { wasOffline = true; return; }
     const auto generation = directOutput.readyGeneration();
-    if (generation == 0) return;
+    const auto followerSequenceAtStart = followerSequence.load();
+    if (generation == 0 || (followerSequenceAtStart & 1) != 0) return;
+    // Connect/load adopts values silently; only SEND STATE resends everything.
     const bool resend = resendRequested.exchange(false);
-    if (wasOffline || generation != previousOutputGeneration || resend)
+    const bool adopt = !resend && (adoptOnNextBlock || wasOffline
+                                   || generation != previousOutputGeneration);
+    if (adopt || resend)
     {
         resetPreviousValues();
         previousOutputGeneration = generation;
         wasOffline = false;
+        adoptOnNextBlock = false;
     }
+    if (forcedSlot.exchange(false))
+    {
+        previousBank = -1;
+        previousSlot = -1;
+    }
+    const auto forced = forcedEffects.exchange(0);
+    for (size_t i = 0; i < previousEffects.size(); ++i)
+        if ((forced & (1 << i)) != 0) previousEffects[i] = -1;
     juce::MidiBuffer output;
 
     const int eventPosition = 0;
@@ -277,15 +337,22 @@ void KemperControlAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     const int bank = parameterInt(parameters.getRawParameterValue("bank")) + 1;
     const int slot = parameterInt(parameters.getRawParameterValue("slot")) + 1;
 
-    if (bank != previousBank)
+    if (bank != previousBank || slot != previousSlot)
     {
-        sendBankAndSlot(output, eventPosition, bank, slot);
+        const int kemperBank = hardwareBank.load();
+        if (kemperBank > 0 && !resend)
+        {
+            // Re-pressing the active slot would toggle Morph.
+            if (bank != kemperBank)
+                sendBankAndSlot(output, eventPosition, bank, slot);
+            else if (slot != hardwareSlot.load())
+                sendCurrentSlot(output, eventPosition, slot);
+        }
+        else if (bank != previousBank)
+            sendBankAndSlot(output, eventPosition, bank, slot);
+        else
+            sendCurrentSlot(output, eventPosition, slot);
         previousBank = bank;
-        previousSlot = slot;
-    }
-    else if (slot != previousSlot)
-    {
-        sendCurrentSlot(output, eventPosition, slot);
         previousSlot = slot;
     }
 
@@ -300,7 +367,9 @@ void KemperControlAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
         const int value = parameterInt(parameters.getRawParameterValue(effectNames[i]));
         if (value != previousEffects[i])
         {
-            sendCC(output, eventPosition, effectCCs[i], value != 0 ? 1 : 0);
+            const int kemperState = hardwareEffects[i].load();
+            if (resend || kemperState != (value != 0 ? 1 : 0))
+                sendCC(output, eventPosition, effectCCs[i], value != 0 ? 1 : 0);
             previousEffects[i] = value;
         }
     }
@@ -375,6 +444,8 @@ void KemperControlAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
         previousMorphButton = morphButton;
     }
 
+    // Follower wrote parameters during this block: drop it.
+    if (adopt || followerSequence.load() != followerSequenceAtStart) return;
     directOutput.enqueue(output, getSampleRate() > 0 ? getSampleRate() : 44100.0,
                          generation);
 }
@@ -391,6 +462,7 @@ void KemperControlAudioProcessor::getStateInformation(juce::MemoryBlock& destDat
     state.setProperty("directMidiId", output.id, nullptr);
     state.setProperty("directMidiName", output.name, nullptr);
     state.setProperty("directMidiChannel", output.channel, nullptr);
+    state.setProperty("followKemper", followKemper.load(), nullptr);
     if (auto xml = state.createXml())
         copyXmlToBinary(*xml, destData);
 }
@@ -407,7 +479,8 @@ void KemperControlAudioProcessor::setStateInformation(const void* data,
             directOutput.configure({ state.getProperty("directMidiId").toString(),
                 state.getProperty("directMidiName").toString(),
                 static_cast<int>(state.getProperty("directMidiChannel", 1)) });
-            requestResend();
+            followKemper.store(static_cast<bool>(state.getProperty("followKemper", false)));
+            adoptOnNextBlock = true;
         }
     }
 }

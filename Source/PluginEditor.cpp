@@ -70,10 +70,22 @@ void KemperControlLookAndFeel::drawToggleButton(juce::Graphics& g,
                                                   bool isMouseOver, bool isButtonDown)
 {
     drawButtonBackground(g, button, {}, isMouseOver, isButtonDown);
-    g.setColour(button.getToggleState() ? juce::Colour(0xff0c130d) : text());
+    const bool on = button.getToggleState();
+    auto textArea = button.getLocalBounds();
+
+    const auto hardwareText = button.getProperties()["hwText"].toString();
+    if (hardwareText.isNotEmpty())
+    {
+        const auto subArea = textArea.removeFromBottom(juce::jmax(13, button.getHeight() / 3));
+        g.setColour(on ? juce::Colour(0xff0c130d).withAlpha(0.75f) : hardware());
+        g.setFont(juce::FontOptions(10.5f).withStyle("Bold"));
+        g.drawFittedText(hardwareText, subArea.reduced(6, 0).translated(0, -3),
+                         juce::Justification::centred, 1, 0.8f);
+    }
+    g.setColour(on ? juce::Colour(0xff0c130d) : text());
     g.setFont(juce::FontOptions(button.getHeight() > 38 ? 17.0f : 12.0f).withStyle("Bold"));
-    g.drawText(button.getButtonText(), button.getLocalBounds(), juce::Justification::centred, false);
-    if (button.getToggleState())
+    g.drawText(button.getButtonText(), textArea, juce::Justification::centred, false);
+    if (on)
     {
         g.setColour(juce::Colours::white.withAlpha(0.85f));
         g.fillEllipse(static_cast<float>(button.getWidth() / 2 - 3), 7.0f, 6.0f, 6.0f);
@@ -152,7 +164,20 @@ KemperControlAudioProcessorEditor::KemperControlAudioProcessorEditor(
     bankReadout.setColour(juce::Label::textColourId, KemperControlLookAndFeel::green());
     bankReadout.setFont(juce::FontOptions(25.0f).withStyle("Bold"));
     bankReadout.setJustificationType(juce::Justification::centred);
+    bankReadout.setTooltip("Bank and slot sent by the plugin");
     addAndMakeVisible(bankReadout);
+    kemperReadout.setFont(juce::FontOptions(13.0f).withStyle("Bold"));
+    kemperReadout.setJustificationType(juce::Justification::centred);
+    kemperReadout.setMinimumHorizontalScale(0.7f);
+    kemperReadout.setTooltip("Names reported by the Kemper");
+    addAndMakeVisible(kemperReadout);
+    configureToggle(followButton, "FOLLOW KEMPER",
+                    "Write changes made on the Kemper into the plugin parameters (and automation)");
+    followButton.setClickingTogglesState(false);
+    followButton.onClick = [this]
+    {
+        kemperProcessor.setFollowKemper(! kemperProcessor.getFollowKemper());
+    };
 
     addAndMakeVisible(midiOutputBox);
     addAndMakeVisible(midiChannelBox);
@@ -209,16 +234,20 @@ KemperControlAudioProcessorEditor::KemperControlAudioProcessorEditor(
     bankSlider.setNumDecimalPlacesToDisplay(0);
     bankSlider.setTooltip("Banque 1 à 124");
     addAndMakeVisible(bankSlider);
-    bankAttachment = std::make_unique<SliderAttachment>(kemperProcessor.parameters, "bank", bankSlider);
-    // AudioParameterChoice uses zero-based indices internally, while the
-    // Kemper and the user-facing control use Bank 1..124.
-    bankSlider.textFromValueFunction = [] (double value)
+    // Not attached: shows the Kemper's performance, edits write the parameter.
+    bankSlider.onValueChange = [this]
     {
-        return juce::String(juce::roundToInt(static_cast<float>(value)) + 1);
-    };
-    bankSlider.valueFromTextFunction = [] (const juce::String& text)
-    {
-        return static_cast<double>(juce::jlimit(0, 123, text.getIntValue() - 1));
+        auto* parameter = kemperProcessor.parameters.getParameter("bank");
+        const auto target = parameter->convertTo0to1(
+            static_cast<float>(juce::roundToInt(bankSlider.getValue()) - 1));
+        if (std::abs(parameter->getValue() - target) < 1.0e-6f)
+        {
+            kemperProcessor.forceSlotSend();
+            return;
+        }
+        parameter->beginChangeGesture();
+        parameter->setValueNotifyingHost(target);
+        parameter->endChangeGesture();
     };
 
     const std::array<juce::String, 5> rigLabels = { "1", "2", "3", "4", "5" };
@@ -230,14 +259,48 @@ KemperControlAudioProcessorEditor::KemperControlAudioProcessorEditor(
         rigButtons[i].setClickingTogglesState(false);
         rigButtons[i].onClick = [this, i]
         {
-            if (auto* parameter = kemperProcessor.parameters.getParameter("slot"))
-                parameter->setValueNotifyingHost(parameter->convertTo0to1(static_cast<float>(i)));
+            const auto setChoice = [this] (const char* id, int index)
+            {
+                auto* parameter = kemperProcessor.parameters.getParameter(id);
+                const auto target = parameter->convertTo0to1(static_cast<float>(index));
+                if (std::abs(parameter->getValue() - target) < 1.0e-6f) return false;
+                parameter->beginChangeGesture();
+                parameter->setValueNotifyingHost(target);
+                parameter->endChangeGesture();
+                return true;
+            };
+            // Slot within the Kemper's current performance.
+            const auto state = kemperProcessor.kemperLink.snapshot();
+            bool changed = false;
+            if (state.responding && juce::isPositiveAndNotGreaterThan(state.performance, 124))
+                changed = setChoice("bank", state.performance - 1);
+            changed = setChoice("slot", static_cast<int>(i)) || changed;
+            if (! changed)
+                kemperProcessor.forceSlotSend();
         };
     }
     for (size_t i = 0; i < effectButtons.size(); ++i)
     {
         configureToggle(effectButtons[i], effectLabels[i], "Activer ou désactiver le slot " + effectLabels[i]);
-        effectAttachments[i] = std::make_unique<ButtonAttachment>(kemperProcessor.parameters, effectIDs[i], effectButtons[i]);
+        effectButtons[i].setClickingTogglesState(false);
+        effectButtons[i].onClick = [this, i, id = effectIDs[i]]
+        {
+            auto* parameter = kemperProcessor.parameters.getParameter(id);
+            const bool parameterOn = parameter->getValue() > 0.5f;
+            const auto state = kemperProcessor.kemperLink.snapshot();
+            const int kemperOn = state.responding ? state.effects[i].on : -1;
+            const bool target = kemperOn >= 0 ? kemperOn == 0 : ! parameterOn;
+            if (target == parameterOn)
+                kemperProcessor.forceEffectSend(static_cast<int>(i));
+            else
+            {
+                parameter->beginChangeGesture();
+                parameter->setValueNotifyingHost(target ? 1.0f : 0.0f);
+                parameter->endChangeGesture();
+            }
+            effectButtons[i].setToggleState(target, juce::dontSendNotification);
+            kemperProcessor.kemperLink.pollSoon();
+        };
     }
 
     const std::array<juce::String, 4> extraLabels = { "I", "II", "III", "IIII" };
@@ -317,7 +380,6 @@ void KemperControlAudioProcessorEditor::paint(juce::Graphics& g)
     g.setFont(juce::FontOptions(11.0f).withStyle("Bold"));
     g.drawText("BANK", 78, 111, 80, 18, juce::Justification::centred, false);
     g.drawText("MORPH SWITCH", getWidth() - 220, 111, 160, 18, juce::Justification::centred, false);
-    g.drawText("COMMAND SELECTED", getWidth() / 2 - 100, 158, 200, 18, juce::Justification::centred, false);
 
     drawPanel(g, { 20.0f, 264.0f, static_cast<float>(getWidth() - 40), 104.0f });
     drawSectionTitle(g, "EFFECT SLOTS", 42, 279, getWidth() - 84);
@@ -345,7 +407,7 @@ void KemperControlAudioProcessorEditor::paint(juce::Graphics& g)
     g.setColour(KemperControlLookAndFeel::muted());
     g.setFont(juce::FontOptions(11.0f));
     g.drawText("MIDI OUTPUT", 28, 693, 110, 18, juce::Justification::left, false);
-    g.drawText("CHANNEL", 560, 693, 80, 18, juce::Justification::left, false);
+    g.drawText("CHANNEL", 350, 693, 80, 18, juce::Justification::left, false);
 }
 
 void KemperControlAudioProcessorEditor::resized()
@@ -353,6 +415,7 @@ void KemperControlAudioProcessorEditor::resized()
     const auto w = getWidth();
     bankSlider.setBounds(72, 127, 130, 35);
     bankReadout.setBounds(w / 2 - 210, 112, 420, 46);
+    kemperReadout.setBounds(w / 2 - 210, 160, 420, 22);
 
     const auto rigWidth = (w - 140) / 5;
     for (int i = 0; i < 5; ++i)
@@ -382,8 +445,9 @@ void KemperControlAudioProcessorEditor::resized()
     for (int i = 0; i < 7; ++i)
         looperButtons[static_cast<size_t>(i)].setBounds(looperMargin + i * (looperWidth + looperGap), 613, looperWidth, 30);
 
-    midiOutputBox.setBounds(28, 713, 440, 34);
-    midiChannelBox.setBounds(650, 713, 82, 34);
+    midiOutputBox.setBounds(28, 713, 300, 34);
+    midiChannelBox.setBounds(350, 713, 82, 34);
+    followButton.setBounds(w - 342, 713, 150, 34);
     aboutButton.setBounds(500, 18, 72, 28);
     resendButton.setBounds(w - 180, 713, 150, 34);
     midiStatus.setBounds(28, 747, w - 350, 20);
@@ -412,21 +476,91 @@ void KemperControlAudioProcessorEditor::refreshMidiPorts()
 
 void KemperControlAudioProcessorEditor::timerCallback()
 {
-    const auto bank = juce::roundToInt(kemperProcessor.parameters.getRawParameterValue("bank")->load()) + 1;
-    const auto slot = juce::roundToInt(kemperProcessor.parameters.getRawParameterValue("slot")->load()) + 1;
-    bankReadout.setText("BANK " + juce::String(bank).paddedLeft('0', 2)
-                        + " / SLOT " + juce::String(slot).paddedLeft('0', 2), juce::dontSendNotification);
     midiStatus.setText(kemperProcessor.directOutput.getStatus(), juce::dontSendNotification);
     const auto settings = kemperProcessor.directOutput.getSettings();
     midiChannelBox.setSelectedId(settings.channel, juce::dontSendNotification);
-    for (size_t i = 0; i < rigButtons.size(); ++i)
-        rigButtons[i].setToggleState(slot == static_cast<int>(i + 1), juce::dontSendNotification);
     const auto index = midiOutputBox.getSelectedId() - 2;
     const auto shown = juce::isPositiveAndBelow(index, midiPorts.size()) ? midiPorts[index].identifier : juce::String();
     if (shown != settings.id) refreshMidiPorts();
+    updateKemperState();
     if (++portRefreshTicks >= 8)
     {
         refreshMidiPorts();
         portRefreshTicks = 0;
     }
+}
+
+namespace
+{
+    void setHardwareText(juce::Button& button, const juce::String& text)
+    {
+        auto& properties = button.getProperties();
+        if (properties["hwText"].toString() == text) return;
+        properties.set("hwText", text);
+        button.repaint();
+    }
+
+    juce::String bankAndSlot(const juce::String& bankLabel, int bank, int slot)
+    {
+        return bankLabel + " " + juce::String(bank).paddedLeft('0', 2)
+             + " / SLOT " + juce::String(slot).paddedLeft('0', 2);
+    }
+}
+
+void KemperControlAudioProcessorEditor::updateKemperState()
+{
+    const auto state = kemperProcessor.kemperLink.snapshot();
+    const auto& parameters = kemperProcessor.parameters;
+    const auto bank = juce::roundToInt(parameters.getRawParameterValue("bank")->load()) + 1;
+    const auto slot = juce::roundToInt(parameters.getRawParameterValue("slot")->load()) + 1;
+    const bool kemperKnown = state.responding && state.performance > 0;
+
+    juce::String detail;
+    if (kemperKnown)
+    {
+        bankReadout.setText(bankAndSlot("PERF", state.performance, state.slot), juce::dontSendNotification);
+        detail = juce::String(state.performanceName);
+        if (! state.rigName.empty())
+            detail << "  >  " << juce::String(state.rigName);
+        if (bank != state.performance || slot != state.slot)
+            detail << "      PLUGIN: " << bankAndSlot("BANK", bank, slot);
+    }
+    else
+    {
+        bankReadout.setText(bankAndSlot("BANK", bank, slot), juce::dontSendNotification);
+        detail = state.responding ? "KEMPER SYNC: WAITING FOR STATE" : "KEMPER SYNC: NO RESPONSE ON THIS PORT";
+    }
+    kemperReadout.setText(detail, juce::dontSendNotification);
+    kemperReadout.setColour(juce::Label::textColourId, kemperKnown
+        ? KemperControlLookAndFeel::hardware() : KemperControlLookAndFeel::muted());
+
+    const bool bankKnown = kemperKnown && state.performance <= 124;
+    const int shownBank = bankKnown ? state.performance : bank;
+    if (juce::roundToInt(bankSlider.getValue()) != shownBank && ! bankSlider.isMouseButtonDown())
+        bankSlider.setValue(shownBank, juce::dontSendNotification);
+
+    for (size_t i = 0; i < rigButtons.size(); ++i)
+    {
+        const int number = static_cast<int>(i + 1);
+        rigButtons[i].setToggleState((kemperKnown ? state.slot : slot) == number,
+                                     juce::dontSendNotification);
+        setHardwareText(rigButtons[i], kemperKnown && state.slotEnabled[i] != 0
+                                           ? juce::String(state.slotNames[i]) : juce::String());
+    }
+
+    const std::array<const char*, 8> effectIDs = { "effectA", "effectB", "effectC", "effectD", "effectX", "effectMOD", "effectDLY", "effectREV" };
+    for (size_t i = 0; i < effectButtons.size(); ++i)
+    {
+        const auto& effect = state.effects[i];
+        const bool parameterOn = parameters.getRawParameterValue(effectIDs[i])->load() > 0.5f;
+        const bool hardwareOn = state.responding && effect.on >= 0;
+        effectButtons[i].setToggleState(hardwareOn ? effect.on == 1 : parameterOn,
+                                        juce::dontSendNotification);
+        const bool named = state.responding && effect.type >= 0;
+        setHardwareText(effectButtons[i], ! named ? juce::String()
+                                          : effect.type == 0 ? juce::String("EMPTY")
+                                                             : juce::String(effect.name));
+    }
+
+    followButton.setToggleState(kemperProcessor.getFollowKemper(), juce::dontSendNotification);
 }
